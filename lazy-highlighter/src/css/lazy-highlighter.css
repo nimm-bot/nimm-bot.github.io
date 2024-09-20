@@ -1,0 +1,71 @@
+/* Base styling */
+[data-lazy-highlighter-container] {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+[data-lazy-highlighter-background] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: transparent;
+    pointer-events: none;
+    transition: all .3s;
+}
+
+[data-lazy-highlighter-container] [data-lazy-highlighter-id] {
+    position: relative;
+}
+
+[data-lazy-highlighter-container].lh-inline-container {
+    display: inline;
+}
+
+/* Default preset */
+[data-lazy-highlighter-container].lh-default [data-lazy-highlighter-background] {
+    border-radius: 10px;
+    mix-blend-mode: multiply;
+}
+
+[data-lazy-highlighter-container].lh-default.highlighted [data-lazy-highlighter-background] {
+    background-color: #5ba2ff80;
+    transition: background-color 0.3s;
+}
+
+[data-lazy-highlighter-container].lh-default.lh-inline-container [data-lazy-highlighter-background] {
+    margin: -5px;
+}
+
+/* Marker preset */
+[data-lazy-highlighter-container].lh-marker [data-lazy-highlighter-background] {
+    right: 100%;
+    background-color: #5ba2ff80;
+    transition: right 0.3s;
+    mix-blend-mode: multiply;
+}
+
+[data-lazy-highlighter-container].lh-marker.highlighted [data-lazy-highlighter-background] {
+    right: 0;
+    transition: right 0.3s;
+    opacity: 1;
+}
+
+/* Border preset */
+[data-lazy-highlighter-container].lh-border [data-lazy-highlighter-background] {
+    border: 3px dashed transparent;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+}
+
+[data-lazy-highlighter-container].lh-border.highlighted [data-lazy-highlighter-background] {
+    border: 3px dashed #5ba2ff;
+    transition: border-color 0.2s;
+}
+
+[data-lazy-highlighter-container].lh-border.lh-inline-container [data-lazy-highlighter-background] {
+    margin: -5px;
+}

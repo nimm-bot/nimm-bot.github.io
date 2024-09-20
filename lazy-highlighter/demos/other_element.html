@@ -1,0 +1,36 @@
+<link href="../src/css/demo.css" rel="stylesheet">
+<link href="../src/css/lazy-highlighter.css" rel="stylesheet">
+<script src="../src/js/lazy-highlighter.js" type="text/javascript"></script>
+<script>
+    window.addEventListener('load', function () {
+        document.querySelectorAll('[data-lazy-highlighter-activator]').forEach(function (elem) {
+            new LazyHighlighter(elem);
+        });
+    });
+</script>
+<h2>Highlight another element</h2>
+<div class="example-wrapper">
+    <div class="w40">
+        <span data-lazy-highlighter-activator="demo_other">
+            Hover on this text to highlight a box below.
+        </span>
+        <br/>
+        <br/>
+        <div class="w90">
+            <div class="box" data-lazy-highlighter-id="demo_other">I am a box.</div>
+        </div>
+    </div>
+    <div class="w60">
+        <div class="html">
+            <pre>
+&lt;span data-lazy-highlighter-activator="demo_other"&gt;
+    Hover on this text to highlight a box below.
+&lt;/span&gt;
+&lt;div class="box" data-lazy-highlighter-id="demo_other"&gt;
+    I am a box.
+&lt;/div&gt;
+</pre>
+            <div class="language">HTML</div>
+        </div>
+    </div>
+</div>

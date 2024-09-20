@@ -1,0 +1,82 @@
+<link href="../src/css/demo.css" rel="stylesheet">
+<link href="../src/css/lazy-highlighter.css" rel="stylesheet">
+<script src="../src/js/lazy-highlighter.js" type="text/javascript"></script>
+<script>
+    window.addEventListener('load', function () {
+        document.querySelectorAll('[data-lazy-highlighter-activator]').forEach(function (elem) {
+            new LazyHighlighter(elem);
+        });
+    });
+</script>
+<h2>Multiple activators for a single element</h2>
+<h4>Example 1:</h4>
+<div class="example-wrapper">
+    <div class="w40">
+        <div>
+            Hover <b data-lazy-highlighter-activator="demo_many-1">here</b>, 
+            <b data-lazy-highlighter-activator="demo_many-1">here</b>, or 
+            <b data-lazy-highlighter-activator="demo_many-1">here</b>, to highlight a box below.
+        </div>
+        <br/>
+        <br/>
+        <div class="w90">
+            <div class="box" data-lazy-highlighter-id="demo_many-1">Box to highlight</div>
+        </div>
+    </div>
+    <div class="w60">
+        <div class="html">
+            <pre>
+&lt;div&gt;
+    Hover 
+    &lt;b data-lazy-highlighter-activator="demo_many-1"&gt;here</b>, 
+    &lt;b data-lazy-highlighter-activator="demo_many-1"&gt;here&lt;/b&gt;, or 
+    &lt;b data-lazy-highlighter-activator="demo_many-1"&gt;here&lt;/b&gt;, to highlight a box below.
+&lt;/div&gt;
+&lt;div class="box" data-lazy-highlighter-id="demo_many-1"&gt;  Box to highlight  &lt;/div&gt;</pre>
+            <div class="language">HTML</div>
+        </div>
+    </div>
+</div>
+
+<h4>Example 2:</h4>
+<div class="example-wrapper">
+    <div class="w40">
+        <div class="mb-15">
+            Hover <b data-lazy-highlighter-activator="demo_a_b">here</b> to highlight boxes A and B. 
+        </div>
+        <div class="mb-15">
+            Hover <b data-lazy-highlighter-activator="demo_b_c">here</b> to highlight boxes B and C. 
+        </div>
+        <div>
+            Hover <b data-lazy-highlighter-activator="demo_a_c">here</b> to highlight boxes A and C. 
+        </div>
+        <br/>
+        <br/>
+        <div class="w90">
+            <div class="flex">
+                <div class="box" data-lazy-highlighter-id="demo_a_b demo_a_c">&nbsp;A&nbsp;</div>
+                <div class="box" data-lazy-highlighter-id="demo_b_c demo_a_b">&nbsp;B&nbsp;</div>
+                <div class="box" data-lazy-highlighter-id="demo_b_c demo_a_c">&nbsp;C&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="w60">
+        <div class="html">
+            <pre>
+&lt;div&gt;
+    Hover &lt;b data-lazy-highlighter-activator="demo_a_b"&gt;here&lt;/b&gt; to highlight boxes A and B. 
+&lt;/div&gt;
+&lt;div&gt;
+    Hover &lt;b data-lazy-highlighter-activator="demo_b_c"&gt;here&lt;/b&gt; to highlight boxes B and C. 
+&lt;/div&gt;
+&lt;div&gt;
+    Hover &lt;b data-lazy-highlighter-activator="demo_a_c"&gt;here&lt;/b&gt; to highlight boxes A and C. 
+&lt;/div&gt;
+
+&lt;div class="box" data-lazy-highlighter-id="demo_a_b demo_a_c"&gt;&nbsp;A&nbsp;&lt;/div&gt;
+&lt;div class="box" data-lazy-highlighter-id="demo_b_c demo_a_b"&gt;&nbsp;B&nbsp;&lt;/div&gt;
+&lt;div class="box" data-lazy-highlighter-id="demo_b_c demo_a_c"&gt;&nbsp;C&nbsp;&lt;/div&gt;</pre>
+            <div class="language">HTML</div>
+        </div>
+    </div>
+</div>

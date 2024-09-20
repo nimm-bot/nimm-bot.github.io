@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lazy highlighter demo</title>
+    <script src="./src/js/lazy-highlighter.js" type="text/javascript"></script>
+    <link href="./src/css/lazy-highlighter.css" rel="stylesheet">
+    <link href="./src/css/demo.css" rel="stylesheet">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="content">
+        <h1>LazyHighlighter initialization and options</h1>
+        <br /><br />
+        <div class="space" id="demo_initialization">
+            <h2>Initialization</h2>
+            <div class="w100">
+                <p>
+                    To start using Lazy Highlighter library, include files from src folder in Your HTML code:
+                </p>
+                <div class="html">
+                    <pre>
+&lt;script src="{directory_path}/lazy-highlighter.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link href="{directory_path}/lazy-highlighter.css" rel="stylesheet"&gt;</pre>    
+                    <div class="language">HTML</div>
+                </div>
+                <p>... or use CDN from GitHub repository:</p>
+                <div class="html">
+                    <pre>
+&lt;script src="https://nimm-bot.github.io/lazy-highlighter/src/js/lazy-highlighter.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link href="https://nimm-bot.github.io/lazy-highlighter/src/css/lazy-highlighter.css" rel="stylesheet"&gt;</pre>
+                    <div class="language">HTML</div>
+                </div>
+                <p>
+                    Once necessary files are included, append script with this snippet:
+                </p>
+                <div class="js">
+                    <pre>
+window.addEventListener('load', function () {
+    document.querySelectorAll('[data-lazy-highlighter-activator]').forEach(function (elem) {
+        new LazyHighlighter(<span data-lazy-highlighter-id="arg1">elem</span>, <span data-lazy-highlighter-id="arg2">{}</span>);
+    });
+});</pre>
+                    <div class="language">JS</div>
+                </div>
+                <p class="mb-15">The <b data-lazy-highlighter-activator="arg1">first argument</b> of constructor is element that, when hovered on, highlights related elements.</p>
+                <p>The <b data-lazy-highlighter-activator="arg2">second argument</b> is a JSON object used for setting highlight options.</p>
+            </div>
+        </div> 
+
+        <div class="space" id="demo_options">
+            <h2>Options</h2>
+            <div class="w100">
+                <p>Upon calling the constructor, the following options can be assigned in <b data-lazy-highlighter-activator="arg2">options</b> argument:</p>
+            </div>
+            <ul>
+                <li>
+                    <p>
+                        <b>template</b> (string) - HTML string to use as wrapper. Must contain {highlighted} substring as a placeholder to highlighted element.
+                    </p>
+                    <p>
+                        Defaults to <code>&lt;div class="lazy-highlighter-container"&gt;&lt;div data-lazy-highlighter-background&gt;&lt;/div&gt;{highlighted}&lt;/div&gt;</code>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>preset</b> (string) - Sets highlight style to one of default presets: 
+                        <code data-lazy-highlighter-activator="default" data-lazy-highlighter-id="default">DEFAULT</code>, 
+                        <code data-lazy-highlighter-activator="border" data-lazy-highlighter-id="border">BORDER</code>, 
+                        <code data-lazy-highlighter-activator="marker" data-lazy-highlighter-id="marker">MARKER</code>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>events</b> (JSON object) - sets callbacks for the following events: <code>click</code>, <code>mouseover</code>, <code>mouseleave</code>.
+                    </p>
+                    <p>Object keys must match event names and values - callbacks for specific events.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="space" id="demo_methods">
+            <h2>Methods</h2>
+            <div class="w100">
+                <p>Calling the constructor assigns LazyHighlighter property to activator element. The following methods can be called for this property:</p>
+            </div>
+            <ul>
+                <li>
+                    <p>
+                        <b>refresh ()</b> - Reloads list of affected elements and rebinds events..
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>destroy ()</b> - Removes LazyHighlighter instance from activator element.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>highlight (isOn)</b> - Shortcut function to highlight all elements affected by activator. 
+                    </p>
+                    <p><i>isOn</i> (null | bool) - if <code>null</code>, toggles highlight on/off based on current state. If bool value is used, <code>true</code> turns highlight on, <code>false</code> - off.</p>
+                </li>
+                <li>
+                    <p><b data-lazy-highlighter-id="event">setEvent (key, callback)</b> - Assigns event callback to event name, but doesn't bind it. Please call refresh() to update existing events.</p>
+                    <p><i>key</i> (string) - event to bind a new callback to. Available values: <code>'click'</code>, <code>'mouseover'</code>, <code>'mouseleave'</code></p>  
+                    <p><i>callback</i> (function) - callback function.</p>
+                </li>
+                <li>
+                    <p><b>setOption (key, value)</b> - set <code>options</code> property, except events. For setting events please see <b data-lazy-highlighter-activator="event">setEvent()</b>.</p>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <br /><br />
+        <h1 class="space">Usage and structure</h1>
+        <iframe id="demo_self" src="./demos/self.html"></iframe>
+        <iframe id="demo_other_element" src="./demos/other_element.html"></iframe>
+        <iframe id="demo_1-many" src="./demos/1-many.html"></iframe>
+        <iframe id="demo_many-1" src="./demos/many-1.html"></iframe>
+        <br /><br />
+        <hr>
+        <br /><br />
+        <h1>Presets and styling</h1>
+        <br /><br />
+        <iframe id="demo_presets-default" src="./demos/presets-default.html"></iframe>
+        <iframe id="demo_presets-marker" src="./demos/presets-marker.html"></iframe>
+        <iframe id="demo_presets-border" src="./demos/presets-border.html"></iframe>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            document.querySelectorAll('[data-lazy-highlighter-activator]').forEach(function (elem) {
+                if (elem.getAttribute('data-lazy-highlighter-activator') === 'border') {
+                    new LazyHighlighter(elem, {'preset': 'BORDER'});
+                } else if (elem.getAttribute('data-lazy-highlighter-activator') === 'marker') {
+                    new LazyHighlighter(elem, {'preset': 'MARKER'});
+                } else {
+                    new LazyHighlighter(elem);
+                }
+            });
+        });
+
+        document.querySelectorAll('iframe').forEach(function (item) {
+            item.addEventListener('load', function () {
+                item.height = item.contentWindow.document.body.scrollHeight;
+            });
+        });
+    </script>
+
+    <div class="toc">
+        <ul>
+            <h5>Lazy Highlighter initialization and options</h5>
+            <li><a href="#demo_initialization">Initialization</a></li>
+            <li><a href="#demo_options">Options</a></li>
+            <li><a href="#demo_methods">Methods</a></li>
+            <!-- <li><a href="#demo_nested">Nested activators and highlight elements</a></li> -->
+
+            <h5>Usage and structure</h5>
+            <li><a href="#demo_self">Highlight self</a></li>
+            <li><a href="#demo_other_element">Highlight another element</a></li>
+            <li><a href="#demo_1-many">One activator for multiple elements</a></li>
+            <li><a href="#demo_many-1">Multiple activators for a single element</a></li>
+
+            <h5>Presets and styling</h5>
+            <li><a href="#demo_presets-default">Default</a></li>
+            <li><a href="#demo_presets-marker">Marker</a></li>
+            <li><a href="#demo_presets-border">Border</a></li>
+            <br/>
+            <a href="https://github.com/nimm-bot/lazy-highlighter" target="_blank">← Back to github page</a>
+        </ul>
+    </div>
+</body>
+
+</html>

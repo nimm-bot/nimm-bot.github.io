@@ -12,8 +12,8 @@ Include files from src subdirectories to head section of Your page.
 ```
 ... or use CDN from GitHub repository:
 ```
-<script src="https://raw.githubusercontent.com/nimm-bot/radio-select/main/src/js/radio-select.js" type="text/javascript"></script>
-<link href="https://raw.githubusercontent.com/nimm-bot/radio-select/main/src/css/radio-select.css" rel="stylesheet">
+<script src="https://nimm-bot.github.io/radio-select/src/js/radio-select.js" type="text/javascript"></script>
+<link href="https://nimm-bot.github.io/radio-select/src/css/radio-select.css" rel="stylesheet">
 ```
 After linking the files, append this JS snippet to document's onload event or as a script tag after select element:
 
